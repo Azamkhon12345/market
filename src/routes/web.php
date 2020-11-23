@@ -387,6 +387,13 @@ Route::get('/admin/orders',function (){
     ]);
 })->middleware('auth');
 
+Route::get('/admin/orders/view/{id}',function ($id){
+    $order = DB::table('orders')->where('id','=' ,$id)->get();
+    return view('admin.orders.viewOrder',[
+        "order"=>$order,
+    ]);
+})->middleware('auth');
+
 Route::post('/admin/order/complete/{id}',function ($id){
     DB::table('orders')->where('id','=',$id)->update([
         "complete"=>TRUE,

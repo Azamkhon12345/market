@@ -100,7 +100,7 @@
                                     @foreach($products as $key=>$temp)
                                         <span>
                                             <h5>
-                                                <a href="{{'/admin/orders/view/'.$item->id}}">{{$contact['phone'] }} {{count($temp)}} - quantity of products</a>
+                                                <a href="{{'/admin/orders/view/'.$item->id}}">{{$contact['phone'] }} {{count($products)}} - quantity of products</a>
                                             </h5>
                                         </span>
                                         <span>
@@ -112,7 +112,7 @@
 
                             <div class="gr">
                                @if($item->complete)
-                                   <div class="btn btn-block btn-success">Completed !</div>
+                                   <div class="btn btn-block btn-success w-100">Completed !</div>
                                 @else
                                 <form action="/admin/order/complete/{{$item->id}}" method="POST">
                                     @csrf
@@ -127,4 +127,4 @@
 
     </div>
 </div>
-    @endsection
+@endsection
