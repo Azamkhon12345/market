@@ -36,6 +36,7 @@
                             <div class="position-relative row form-group"><label for="visible" class="col-sm-2 col-form-label">Статус:</label>
                                 <div class="col-sm-10">
                                     <select name="visible" id="visible" class="form-control">
+
                                         <option value="1"> Активный </option>
                                         <option value="0"> Скрытый </option>
 
@@ -85,4 +86,8 @@
                 filebrowserUploadMethod: 'form'
             });
         </script>
+
+       <script type="text/javascript">
+
+       </script>
 @endsection

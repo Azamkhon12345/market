@@ -51,17 +51,16 @@
                             <div class="position-relative row form-group"><label for="category" class="col-sm-2 col-form-label">Категория:</label>
                                 <div class="col-sm-10">
                                     <select name="category" id="category" class="form-control">
-                                        <option value="man"> Мужское </option>
-                                        <option value="woman"> Женское </option>
+                                        @foreach($categories as $category)
+                                            <option value="{{$category->category}}"> {{$category->category}} </option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="position-relative row form-group"><label for="subcategory" class="col-sm-2 col-form-label">Категория:</label>
+                            <div class="position-relative row form-group"><label for="subcategory" class="col-sm-2 col-form-label">Подкатегория:</label>
                                 <div class="col-sm-10">
                                     <select name="subcategory" id="subcategory" class="form-control">
-                                        <option value="clothe"> Одежда </option>
-                                        <option value="shoes"> Обувь </option>
                                     </select>
                                 </div>
                             </div>
@@ -114,4 +113,46 @@
 
         </form>
 
+       <script type="text/javascript" src="{{asset('./js/JQuery3.3.1.js')}}"></script>
+       <script type="text/javascript">
+
+           // $.ajaxSetup({
+           //     headers:{
+           //         'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content'),
+           //     }
+           // })
+           $.ajax({
+               type:"POST",
+               url:"/admin/subacategory/createPage",
+               data:{
+                   "category": $('#category').val(),
+                   "_token": "{{ csrf_token() }}",
+               },
+               success: function (result) {
+
+                   $('#subcategory').html(result);
+               },
+               error:function (result,error) {
+                   alert(error);
+               }
+           })
+           $('#category').change(function (e) {
+               e.preventDefault();
+               $.ajax({
+                   type:"POST",
+                   url:"/admin/subacategory/createPage",
+                   data:{
+                       "category": $(this).val(),
+                       "_token": "{{ csrf_token() }}",
+                   },
+                   success: function (result) {
+
+                       $('#subcategory').html(result);
+                   },
+                   error:function (result,error) {
+                       alert(error);
+                   }
+               })
+           })
+       </script>
 @endsection

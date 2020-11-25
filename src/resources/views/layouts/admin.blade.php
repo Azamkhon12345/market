@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset('css/admin.css')}}">
 {{--    <link rel="stylesheet" href="{{asset('css/style.css')}}">--}}
 {{--    <link rel="stylesheet" href="{{asset('css/media.css')}}">--}}
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>

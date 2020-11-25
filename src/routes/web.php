@@ -144,7 +144,7 @@ Route::get('/news/{id}', function ($id) {
 
 // admin
 Route::get('/admin', function () {
-    $news=[];
+    $news = DB::table('news')->latest('id')->get();
     return view('admin.main',[
         "news"=>$news,
     ]);
@@ -154,7 +154,7 @@ Route::get('/admin', function () {
 
 Route::get('/admin/news',function(){
     $news = DB::table('news')->latest('id')->get();
-    return view('admin/news',[
+    return view('admin/main',[
         'news' =>$news
     ]);
 })->middleware('auth');
@@ -275,7 +275,9 @@ Route::post('/admin/products/create',function (Request $request){
 
 Route::get('/admin/products/edit/{id}',function($id){
     $products = DB::table('products')->where('id','=',$id)->get();
+    $categories=DB::table('category')->get();
     return view('admin.products.editProduct',[
+        "categories"=>$categories,
         "product"=>$products
     ]);
 })->middleware('auth');
@@ -401,8 +403,105 @@ Route::post('/admin/order/complete/{id}',function ($id){
     return redirect('admin/orders/');
 })->middleware('auth');
 
+// Admin category
+
+Route::get('/admin/category',function (){
+    $category = DB::table('category')->orderBy('id', 'desc')->get();
+    return view('admin.category.category',[
+        "categories"=>$category,
+    ]);
+})->middleware('auth');
+
+Route::get('/admin/category/create',function (){
+    return view('admin.category.createCategory');
+})->middleware('auth');
+
+Route::post('/admin/category/create',function (Request $request){
+    $subcat =array();
+    $tmp=1;
+    for ($i=1;$i<=$request->count;$i++){
+        if($request[$i] !=NULL){
+            array_push($subcat,[
+                'subcategory' =>$request[$i],
+                'id'=>$tmp,
+            ]);
+            $tmp+=1;
+        }
+    }
+    $category = $request->category;
+    DB::table('category')->insert([
+        "category" => $category,
+        "subcategory" =>json_encode($subcat,1),
+        "created_at"=>new \DateTime(),
+        ]);
+    return redirect('/admin/category');
+})->middleware("auth");
+
+Route::get('/admin/category/edit/{id}',function ($id){
+    $category = DB::table('category')->where('id','=' ,$id)->get();
+    return view('admin.category.editCategory',[
+        "category"=>$category,
+    ]);
+})->middleware('auth');
+
+Route::post('/admin/category/edit/{id}',function (Request $request,$id){
+    $subcat =array();
+    $tmp=1;
+    for ($i=1;$i<=$request->count;$i++){
+        if($request[$i] !=NULL){
+        array_push($subcat,[
+            'subcategory' =>$request[$i],
+            'id'=>$tmp,
+        ]);
+        $tmp+=1;
+        }
+    }
+    $category = $request->category;
+    DB::table('category')->where('id','=',$id)->update([
+        "category" => $category,
+        "subcategory" =>json_encode($subcat,1),
+        "updated_at"=>new \DateTime(),
+        ]);
+    return redirect('/admin/category');
+})->middleware("auth");
+Route::post('/admin/category/delete/{id}',function ($id){
+
+    DB::table('category')->where('id','=',$id)->delete();
+    return redirect('admin/category/');
+})->middleware('auth');
+
+Route::post('/admin/subacategory/createPage',function (Request $request){
+    $category = $request->category;
+    $result ='';
+    $subcategory = DB::table('category')->where('category','LIKE',$category)->get();
+    foreach ($subcategory as $val){
+        $temp = json_decode($val->subcategory,1);
+        foreach ($temp as $subcategory){
+            $result .='<option value="'.$subcategory['subcategory'].'"> '.$subcategory['subcategory'].' </option>';
+        }
+    }
+    return $result;
+});
+
+Route::post('/admin/subacategory/editPage',function (Request $request){
+    $itemSubcat = $request->subcategory;
+    $category = $request->category;
+    $result ='';
+    $subcategory = DB::table('category')->where('category','LIKE',$category)->get();
+    foreach ($subcategory as $val){
+        $temp = json_decode($val->subcategory,1);
+        foreach ($temp as $subcategory){
+            if (strcmp($itemSubcat, $subcategory['subcategory']) == 0){
+                $result .='<option value="'.$subcategory['subcategory'].'" autocomplete="off"  selected="selected"> '.$subcategory['subcategory'].' </option>';
+            }else{
+                $result .='<option value="'.$subcategory['subcategory'].'" autocomplete="off"> '.$subcategory['subcategory'].' </option>';
+            }
+        }
+    }
+    return $result;
+});
 
 Auth::routes();
 //
-//Route::resource('editor','ckeditor');
-//Route::post('/ckeditor/image_upload',"ckeditor@upload")->name('upload');
+Route::resource('editor','ckeditor');
+Route::post('/ckeditor/image_upload',"ckeditor@upload")->name('upload');

@@ -7,6 +7,8 @@
 
         @foreach($product as $item)
 
+            <form action="" method="POST" enctype="multipart/form-data">
+                @csrf
             <div class="page-title-wrapper">
                 <div class="app-page-title">
                     <div class="page-title-wrapper">
@@ -28,8 +30,7 @@
                     </div>
                 </div>
             </div>
-            <form action="" method="POST" enctype="multipart/form-data">
-                @csrf
+                <input type="hidden" class="JQsubcat" value="{{$item->subcategory}}">
             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                 <div class="main-card mb-3 card">
                     <div class="card-body"><h5 class="card-title">Редактировать product</h5>
@@ -59,17 +60,26 @@
                             <div class="position-relative row form-group"><label for="category" class="col-sm-2 col-form-label">Категория:</label>
                                 <div class="col-sm-10">
                                     <select name="category" id="category" class="form-control">
-                                        <option value="man"> Мужское </option>
-                                        <option value="woman"> Женское </option>
+
+                                        @foreach($categories as $category)
+                                            @if(strcmp($category->category,$item->category)==0)
+                                                <option value="{{$category->category}}" autocomplete="off"  selected="selected"> {{$category->category}} </option>
+                                            @else
+                                                <option value="{{$category->category}}" autocomplete="off"  > {{$category->category}} </option>
+                                            @endif
+                                        @endforeach
+{{--                                        @foreach($categories as $category)--}}
+{{--                                        @if($strcmp(category,$item->category)!=0)--}}
+{{--                                            <option value="{{$category->category}}" autocomplete="off" > {{$category->category}} </option>--}}
+{{--                                        @endif--}}
+{{--                                        @endforeach--}}
                                     </select>
                                 </div>
                             </div>
 
-                            <div class="position-relative row form-group"><label for="subcategory" class="col-sm-2 col-form-label">Категория:</label>
+                            <div class="position-relative row form-group"><label for="subcategory" class="col-sm-2 col-form-label">Подкатегория:</label>
                                 <div class="col-sm-10">
                                     <select name="subcategory" id="subcategory" class="form-control">
-                                        <option value="clothe"> Одежда </option>
-                                        <option value="shoes"> Обувь </option>
                                     </select>
                                 </div>
                             </div>
@@ -105,6 +115,7 @@
                                     <textarea name="description" class="form-control">{{$item->description}}</textarea>
                                 </div>
                             </div>
+
 {{--                        <style>--}}
 {{--                            .fullw {--}}
 {{--                                width: 100% !important;--}}
@@ -230,11 +241,50 @@
 
         </div>
 
-
         @endforeach
+
+
         <script src="{{asset('./js/JQuery3.3.1.js')}}"></script>
         <script src="{{asset('./js/image-compressor.js')}}"></script>
         <script type="text/javascript">
+            $.ajax({
+                type:"POST",
+                url:"/admin/subacategory/editPage",
+                data:{
+                    "category": $('#category').val(),
+                    "subcategory": $('.JQsubcat').val(),
+                    "_token": "{{ csrf_token() }}",
+                },
+                success: function (result) {
+
+                    $('#subcategory').html(result);
+                },
+                error:function (result,error) {
+                    alert(error);
+                }
+            })
+            $('#category').change(function (e) {
+                e.preventDefault();
+                $.ajax({
+                    type:"POST",
+                    url:"/admin/subacategory/editPage",
+                    data:{
+                        "category": $(this).val(),
+                        "subcategory": $('.JQsubcat').val(),
+                        "_token": "{{ csrf_token() }}",
+                    },
+                    success: function (result) {
+
+                        $('#subcategory').html(result);
+                    },
+                    error:function (result,error) {
+                        alert(error);
+                    }
+                })
+            })
+        </script>
+        <script type="text/javascript">
+
             Dropzone.options.mydropzone = {
                 transformFile: function(file, done) {
                     const imageCompressor = new ImageCompressor();
