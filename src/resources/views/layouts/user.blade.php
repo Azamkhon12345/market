@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Market</title>
-    <meta name="description" content="">
+    <meta name="description" content=page-link"">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{csrf_token()}}">
     <!-- Favicon -->
@@ -20,8 +20,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/icofont.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/meanmenu.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/bundle.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/style.css?version=2')}}">
     <link rel="stylesheet" href="{{asset('assets/css/responsive.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('./css/style.css?version=2')}}">
 
     <script src="{{asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
     <script src="{{asset('assets/js/vendor/jquery-1.12.0.min.js')}}"></script>

@@ -1,12 +1,43 @@
 @extends('layouts.user')
 @section('content')
 
-<div class="breadcrumb-area pt-205 breadcrumb-padding pb-210" style="background-image: url(assets/img/bg/breadcrumb.jpg)">
+    <link rel="stylesheet" href="{{asset('css/forUser.css?version=10')}}">
+    <style>
+        .pagination-style{
+            display: flex;
+            justify-content: center;
+
+        }
+        .page-item{
+            display: inline-block;
+            margin-bottom: 2px;
+            margin-top: 0px;
+        }
+        .page-link{
+            background-color: #f6f6f6;
+            color: #3f3f3f;
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 500;
+            height: 40px;
+            line-height: 41px;
+            width: 40px;
+            vertical-align: baseline;
+            padding-top: 0px;
+        }
+        .page-item.active .page-link,
+        .page-link:hover{
+            background-color: #3f3f3f;
+            color: #fff;
+        }
+
+    </style>
+<div class="breadcrumb-area pt-205 breadcrumb-padding pb-210" style='background-image: url("assets/img/bg/breadcrumb.jpg");'>
     <div class="container-fluid">
         <div class="breadcrumb-content text-center">
             <h2> shop grid</h2>
             <ul>
-                <li><a href="#">home</a></li>
+                <li><a href="/">home</a></li>
                 <li>shop grid</li>
             </ul>
         </div>
@@ -250,7 +281,7 @@
                                                 </a>
                                                 <span>hot</span>
                                                 <div class="product-action-list-style">
-                                                    <a class="animate-right" title="Quick View" data-toggle="modal" data-target="#mymodal" href="#">
+                                                    <a class="animate-right" title="Quick View" data-toggle="modal" data-target="#{{$item->id}}" href="#">
                                                         <i class="pe-7s-look"></i>
                                                     </a>
                                                 </div>
@@ -281,14 +312,15 @@
                     </div>
                 </div>
                 <div class="pagination-style mt-30 text-center">
-                    <ul>
-                        <li><a href="#"><i class="ti-angle-left"></i></a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">...</a></li>
-                        <li><a href="#">19</a></li>
-                        <li class="active"><a href="#"><i class="ti-angle-right"></i></a></li>
-                    </ul>
+                    {{$products->links()}}
+{{--                    <ul>--}}
+{{--                        <li><a href="#"><i class="ti-angle-left"></i></a></li>--}}
+{{--                        <li><a href="#">1</a></li>--}}
+{{--                        <li><a href="#">2</a></li>--}}
+{{--                        <li><a href="#">...</a></li>--}}
+{{--                        <li><a href="#">19</a></li>--}}
+{{--                        <li class="active"><a href="#"><i class="ti-angle-right"></i></a></li>--}}
+{{--                    </ul>--}}
                 </div>
             </div>
         </div>
@@ -397,94 +429,5 @@
         </div>
         </form>
     @endforeach
-    <div class="modal fade" id="mymodal" tabindex="-1" role="dialog" aria-hidden="true">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span class="pe-7s-close" aria-hidden="true"></span>
-        </button>
-        <div class="modal-dialog modal-quickview-width" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <div class="qwick-view-left">
-                        <div class="quick-view-learg-img">
-                            <div class="quick-view-tab-content tab-content">
-                                <div class="tab-pane active show fade" id="modal1" role="tabpanel">
-                                    <img src="assets/img/quick-view/l1.jpg" alt="">
-                                </div>
-                                <div class="tab-pane fade" id="modal2" role="tabpanel">
-                                    <img src="assets/img/quick-view/l2.jpg" alt="">
-                                </div>
-                                <div class="tab-pane fade" id="modal3" role="tabpanel">
-                                    <img src="assets/img/quick-view/l3.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="quick-view-list nav" role="tablist">
-                            <a class="active" href="#modal1" data-toggle="tab" role="tab">
-                                <img src="assets/img/quick-view/s1.jpg" alt="">
-                            </a>
-                            <a href="#modal2" data-toggle="tab" role="tab">
-                                <img src="assets/img/quick-view/s2.jpg" alt="">
-                            </a>
-                            <a href="#modal3" data-toggle="tab" role="tab">
-                                <img src="assets/img/quick-view/s3.jpg" alt="">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="qwick-view-right">
-                        <div class="qwick-view-content">
-                            <h3>My modal</h3>
-                            <div class="price">
-                                <span class="new">$90.00</span>
-                                <span class="old">$120.00  </span>
-                            </div>
-                            <div class="rating-number">
-                                <div class="quick-view-rating">
-                                    <i class="pe-7s-star"></i>
-                                    <i class="pe-7s-star"></i>
-                                    <i class="pe-7s-star"></i>
-                                    <i class="pe-7s-star"></i>
-                                    <i class="pe-7s-star"></i>
-                                </div>
-                                <div class="quick-view-number">
-                                    <span>2 Ratting (S)</span>
-                                </div>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do tempor incididun ut labore et dolore magna aliqua. Ut enim ad mi , quis nostrud veniam exercitation .</p>
-                            <div class="quick-view-select">
-                                <div class="select-option-part">
-                                    <label>Size*</label>
-                                    <select class="select">
-                                        <option value="">- Please Select -</option>
-                                        <option value="">900</option>
-                                        <option value="">700</option>
-                                    </select>
-                                </div>
-                                <div class="select-option-part">
-                                    <label>Color*</label>
-                                    <select class="select">
-                                        <option value="">- Please Select -</option>
-                                        <option value="">orange</option>
-                                        <option value="">pink</option>
-                                        <option value="">yellow</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="quickview-plus-minus">
-                                <div class="cart-plus-minus">
-                                    <input type="text" value="02" name="qtybutton" class="cart-plus-minus-box">
-                                </div>
-                                <div class="quickview-btn-cart">
-                                    <a class="btn-hover-black" href="#">add to cart</a>
-                                </div>
-                                <div class="quickview-btn-wishlist">
-                                    <a class="btn-hover" href="#"><i class="pe-7s-like"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 @endsection

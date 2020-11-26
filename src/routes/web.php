@@ -46,7 +46,7 @@ Route::get('/contacts', function (Request $request) {
 });
 Route::get('/shop', function (Request $request) {
     $sess=$request->session()->get('products');
-    $products = DB::table('products')->where('visible','=',1)->get();
+    $products = DB::table('products')->where('visible','=',1)->paginate(15);
     return view('shop',[
         'products'=>$products,
         'sess'=>$sess,

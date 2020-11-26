@@ -665,7 +665,7 @@
     z-index: 99;
 }
 .slider-img-4.slider-mrg {
-  margin-right: 70px;
+    margin-right: 70px;
 }
 .slider-img-3 {
     margin-left: -414px;
@@ -830,29 +830,6 @@
     text-align: center;
     transition: all 0.3s ease 0s;
 }
-.product-action form {
-    background-color: #383838;
-    border-radius: 100%;
-    color: #f7f7f7;
-    display: inline-block;
-    font-size: 24px;
-    height: 45px;
-    line-height: 52px;
-    margin: 0 15px;
-    width: 45px;
-}
-.product-action form button{
-    background-color: #383838;
-    border-radius: 100%;
-    color: #f7f7f7;
-    display: inline-block;
-    font-size: 24px;
-    height: 45px;
-    line-height: 52px;
-    margin: 0 15px;
-    width: 45px;
-}
-
 .product-action a {
     background-color: #383838;
     border-radius: 100%;
@@ -863,10 +840,6 @@
     line-height: 52px;
     margin: 0 15px;
     width: 45px;
-}
-.product-action form:hover {
-    background-color: #050035;
-    color: #fff;
 }
 .product-action a:hover {
     background-color: #050035;
@@ -2127,7 +2100,7 @@ a.banner-book-style-btn:hover {
     justify-content: space-between;
 }
 .header-contact-info {
-  padding-top: 2px;
+    padding-top: 2px;
 }
 .header-contact-info li {
     color: #666666;
@@ -2163,37 +2136,37 @@ a.banner-book-style-btn:hover {
     margin-right: 5px;
 }
 .electronics-login-register > ul > li {
-  display: inline-block;
-  margin-left: 66px;
-  position: relative;
+    display: inline-block;
+    margin-left: 66px;
+    position: relative;
     padding: 0 0 10px;
 }
 .electronics-login-register ul li ul {
-  background-color: #fff;
-  box-shadow: 0 0 15px 0.08px rgba(0, 0, 0, 0.15);
-  left: -30px;
-  opacity: 0;
-  padding: 20px;
-  position: absolute;
-  text-align: left;
-  top: 110%;
-  transition: all 0.3s ease 0s;
-  visibility: hidden;
-  width: 130px;
-  z-index: 9999;
+    background-color: #fff;
+    box-shadow: 0 0 15px 0.08px rgba(0, 0, 0, 0.15);
+    left: -30px;
+    opacity: 0;
+    padding: 20px;
+    position: absolute;
+    text-align: left;
+    top: 110%;
+    transition: all 0.3s ease 0s;
+    visibility: hidden;
+    width: 130px;
+    z-index: 9999;
 }
 .electronics-login-register ul li:hover > ul {
-  opacity: 1;
-  top: 100%;
-  visibility: visible;
+    opacity: 1;
+    top: 100%;
+    visibility: visible;
 }
 .electronics-login-register ul li ul li {
-  display: block;
-  padding-bottom: 10px;
+    display: block;
+    padding-bottom: 10px;
 }
 .electronics-login-register ul li ul li > a {
-  display: block;
-  text-transform: capitalize;
+    display: block;
+    text-transform: capitalize;
 }
 .header-contact-info li:last-child {
     margin-right: 0px;
@@ -2230,7 +2203,7 @@ a.banner-book-style-btn:hover {
     content: none;
 }
 .header-top-wrapper-2 {
-  padding: 13px 0 3px;
+    padding: 13px 0 3px;
 }
 .header-contact-info li a:hover,
 .electronics-login-register ul li a:hover {
@@ -2387,7 +2360,7 @@ a.banner-book-style-btn:hover {
     right: 50px;
 }
 .category-menu-list > ul > li {
-  position: relative;
+    position: relative;
 }
 .category-menu-list li:last-child {
     border-bottom: none;
@@ -2938,8 +2911,8 @@ a.banner-book-style-btn:hover {
     width: 100%;
 }
 .electro-fexible-banner {
-  cursor: pointer;
-  position: relative;
+    cursor: pointer;
+    position: relative;
 }
 .electro-fexible-banner:hover .fexible-content > h3 , .electro-fexible-banner:hover .fexible-content > p  , .electro-fexible-banner:hover .fexible-content > a , .furits-banner-wrapper:hover .furits-banner-content > h4 , .furits-banner-wrapper:hover .furits-banner-content > p , .furits-banner-wrapper:hover .furits-banner-content > a , .single-banner:hover .banner-content > span , .single-banner:hover .banner-content > h2 , .single-banner:hover .banner-content > p  , .discount-wrapper:hover .discount-content > h2 , .discount-wrapper:hover .discount-content > a {
     animation: 700ms ease-in-out 0s normal none 1 running fadeInUp;
@@ -2948,7 +2921,7 @@ a.banner-book-style-btn:hover {
 
 .furits-banner-wrapper ,
 .discount-wrapper {
-  cursor: pointer;
+    cursor: pointer;
 }
 .fexible-content {
     padding: 75px 294px 77px;
@@ -3235,7 +3208,7 @@ a.banner-book-style-btn:hover {
     background-color: #fff;
 }
 .product-img-5 {
-  flex: 0 0 189px;
+    flex: 0 0 189px;
 }
 .product-content-7 > h4 {
     color: #383838;
@@ -3548,33 +3521,33 @@ a.banner-book-style-btn:hover {
     position: relative;
 }
 .category-heading-2 .category-menu-list {
-  background-color: #fff;
-  border-radius: 10px;
-  left: 0;
-  padding: 40px 0;
-  position: absolute;
-  top: 100%;
-  width: 300px;
-  z-index: 999;
+    background-color: #fff;
+    border-radius: 10px;
+    left: 0;
+    padding: 40px 0;
+    position: absolute;
+    top: 100%;
+    width: 300px;
+    z-index: 999;
 }
 .category-heading-2 .category-menu-list.category-list-none {
     display: none;
 }
 .category-menu-list > ul > li > a {
-  border-bottom: 1px solid #f1f1f1;
-  color: #666;
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  margin-left: 30px;
-  margin-right: 20px;
-  padding-bottom: 20px;
+    border-bottom: 1px solid #f1f1f1;
+    color: #666;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-left: 30px;
+    margin-right: 20px;
+    padding-bottom: 20px;
 }
 .category-menu-list > ul > li:last-child > a {
-  border-bottom: none;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
+    border-bottom: none;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }
 .menu-style-4 nav > ul > li > a {
     color: #f3f3f3;
@@ -3777,7 +3750,7 @@ a.banner-book-style-btn:hover {
     padding: 70px 120px 74px;
 }
 .hanicraft-action {
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 /*------------- 6. Handicraft page -----------*/
 /* 6.1 Header style of handicraft */
@@ -4223,7 +4196,7 @@ a.banner-book-style-btn:hover {
     position: relative;
 }
 .subscribe-form-4 {
-  margin-top: 16px;
+    margin-top: 16px;
 }
 .subscribe-form-4 form {
     position: relative;
@@ -4914,22 +4887,22 @@ a.icon-cart-furniture span.green {
     top: 0;
 }
 .single-overview > h4 {
-  font-size: 24px;
-  letter-spacing: 0.2px;
-  position: relative;
+    font-size: 24px;
+    letter-spacing: 0.2px;
+    position: relative;
 }
 .single-overview > h4::before {
-  background: #383838 none repeat scroll 0 0;
-  bottom: -3px;
-  content: "";
-  height: 2px;
-  left: 0;
-  position: absolute;
-  transition: all 0.3s ease-in-out 0s;
-  width: 0;
+    background: #383838 none repeat scroll 0 0;
+    bottom: -3px;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    transition: all 0.3s ease-in-out 0s;
+    width: 0;
 }
 .single-overview:hover *::before {
-  width: 50px;
+    width: 50px;
 }
 .buy-now-btn {
     margin-left: 20px;
@@ -5479,16 +5452,16 @@ a.icon-cart-furniture span.green {
     margin: 0 70px;
 }
 .subscribe-form-6 .mc-form::before {
-  color: #969fc1;
-  content: "";
-  display: block;
-  font-family: "themify";
-  font-size: 24px;
-  left: 31px;
-  position: absolute;
-  text-align: center;
-  top: 30px;
-  z-index: 99;
+    color: #969fc1;
+    content: "";
+    display: block;
+    font-family: "themify";
+    font-size: 24px;
+    left: 31px;
+    position: absolute;
+    text-align: center;
+    top: 30px;
+    z-index: 99;
 }
 
 /*---------- 9. Sports page -----------*/
@@ -5840,11 +5813,11 @@ a.icon-cart-furniture.food-cart span {
 /* 10.4 Service style of food */
 
 .single-food-services img , .single-food-services p , .single-food-services h4 {
-  z-index: 99;
+    z-index: 99;
     position: relative;
 }
 .single-food-services:hover img {
-  animation: 500ms ease-in-out 0s normal none 1 running tada;
+    animation: 500ms ease-in-out 0s normal none 1 running tada;
 }
 .single-food-services > h4 {
     color: #ffffff;
@@ -6715,14 +6688,9 @@ h1.cart-heading {
 .table-content table td.product-thumbnail {
     width: 130px;
 }
-.product-thumbnail a img {
-    width: 200px;
-}
-.table-content table td.product-remove button {
+.table-content table td.product-remove i {
     color: #919191;
     display: inline-block;
-    background: transparent;
-    border: none;
     font-size: 35px;
     height: 40px;
     line-height: 40px;
@@ -6733,7 +6701,7 @@ h1.cart-heading {
     color: #555;
     font-size: 15px;
 }
-.table-content table td.product-remove button:hover {
+.table-content table td.product-remove i:hover {
     color: #050035;
 }
 .table-content table td.product-quantity {
@@ -7535,7 +7503,7 @@ h5.panel-title {
 }
 /*--------- 17. Product details ------------*/
 .details-9 {
-  overflow: hidden;
+    overflow: hidden;
 }
 .product-details-content > h3,
 .inner-wrapper-sticky > h3 {
@@ -8754,7 +8722,7 @@ a.bundle-btn {
     z-index: -1;
 }
 .furits-content img.slide-img-position.slide-img-position-2 {
-  left: 17%;
+    left: 17%;
 }
 .btn-hover.furits-slider-btn::before {
     border-radius: 50px;
@@ -9565,7 +9533,7 @@ input.cart-plus-minus-box {
     justify-content: flex-start;
     padding-top: 5px;
 }
-.quickview-btn-cart > input {
+.quickview-btn-cart > a {
     background-color: #050035;
     color: #fff;
     display: inline-block;
@@ -9619,8 +9587,4 @@ input.cart-plus-minus-box {
 }
 .modal-content .close:hover {
     color: #050035;
-}
-
-.cart-img a .cartimg{
-    height: 50px;
 }
